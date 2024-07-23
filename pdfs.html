@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Database - PDFs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Maths Database</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="pdfs.html">PDFs</a></li>
+                <li><a href="socials.html">Réseaux Sociaux</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Liste des PDFs</h2>
+        <input type="text" id="search-bar" placeholder="Rechercher..." onkeyup="filterPDFs()">
+        <ul id="pdf-list">
+            <li><a href="assets/pdfs/convergence.pdf" target="_blank">convergence</a></li>
+            <li><a href="assets/pdfs/analyse3.pdf" target="_blank">thm val intermediairaires</a></li>
+            <!-- Ajoutez plus de liens vers vos PDFs ici -->
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Maths Database. Tous droits réservés.</p>
+    </footer>
+    <script>
+        function filterPDFs() {
+            const searchInput = document.getElementById('search-bar').value.toLowerCase();
+            const pdfList = document.getElementById('pdf-list');
+            const pdfItems = pdfList.getElementsByTagName('li');
+
+            for (let i = 0; i < pdfItems.length; i++) {
+                const link = pdfItems[i].getElementsByTagName('a')[0];
+                const textValue = link.textContent || link.innerText;
+
+                if (textValue.toLowerCase().indexOf(searchInput) > -1) {
+                    pdfItems[i].style.display = '';
+                } else {
+                    pdfItems[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
