@@ -1,130 +1,199 @@
+/* Variables CSS pour une gestion facile des couleurs et des tailles */
+:root {
+    --primary-color: #4caf99; /* Couleur principale */
+    --primary-light: #66bb6a; /* Variante plus claire pour les survols */
+    --primary-dark: #388E3C; /* Variante plus sombre pour les survols actifs */
+    --background-color: #f9f9f9; /* Couleur de fond */
+    --text-color: #333; /* Couleur du texte */
+    --border-color: #ddd; /* Couleur des bordures */
+    --header-bg: #4CAF50; /* Couleur de l'en-tête */
+    --footer-bg: #333; /* Couleur du pied de page */
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Ombre légère */
+    --shadow-dark: rgba(0, 0, 0, 0.2); /* Ombre plus foncée */
+    --font-base: 16px; /* Taille de police de base pour les calculs rem */
+    --border-radius: 8px; /* Rayon des bordures */
+}
+
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1em 0;
+.center-text {
     text-align: center;
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
+.course-image {
+    width: 300px;  /* Largeur fixe pour les images */
+    height: auto;  /* Maintient les proportions de l'image */
+    max-width: 100%; /* Réduit la taille de l'image si nécessaire */
+    border-radius: var(--border-radius); /* Coins arrondis */
+    box-shadow: 0 4px 8px var(--shadow-light); /* Ombre légère */
+    transition: box-shadow 0.3s, transform 0.3s; /* Transition douce */
 }
 
+.course-image:hover {
+    box-shadow: 0 6px 12px var(--shadow-dark); /* Ombre plus foncée au survol */
+    transform: scale(1.05); /* Agrandissement léger au survol */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Ajustez selon vos besoins */
+}
+
+.adsense {
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--header-bg);
+    color: white;
+    padding: 1.5em 0; /* Espacement plus généreux */
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-light); /* Ombre sous l'en-tête */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Taille de police plus grande */
+    margin: 0;
+    font-weight: bold; /* Police en gras pour plus d'impact */
+}
+
+/* Navigation Styles */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0 1.5rem; /* Espacement plus large entre les éléments */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem; /* Espacement intérieur des liens */
+    border-radius: var(--border-radius); /* Coins arrondis pour les liens */
+    transition: background-color 0.3s, color 0.3s; /* Transitions douces */
 }
 
 nav ul li a:hover {
-    color: #d1d1d1;
+    background-color: var(--primary-light); /* Couleur de fond au survol */
+    color: var(--text-color); /* Couleur du texte au survol */
 }
 
+/* Main Content Styles */
 main {
-    padding: 20px;
+    padding: 2rem; /* Espacement plus large autour du contenu principal */
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2rem;
     margin-top: 0;
+    font-weight: bold; /* Police en gras pour les titres */
+    color: var(--primary-dark); /* Couleur des titres */
 }
 
+/* Form Styles */
 #search-bar {
     width: 100%;
-    padding: 10px;
-    margin: 20px 0;
-    font-size: 1.2em;
+    padding: 0.75rem; /* Espacement plus généreux */
+    margin: 1.5rem 0; /* Espacement autour du champ de recherche */
+    font-size: 1.2rem;
     box-sizing: border-box;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius); /* Coins arrondis */
+    box-shadow: 0 2px 4px var(--shadow-light); /* Ombre légère */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transitions douces */
 }
 
+#search-bar:focus {
+    border-color: var(--primary-dark); /* Changement de couleur au focus */
+    box-shadow: 0 2px 6px var(--shadow-dark); /* Ombre plus foncée au focus */
+}
+
+/* PDF List Styles */
 #pdf-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 #pdf-list li {
     background-color: white;
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0.75rem 0; /* Espacement plus large */
+    padding: 1rem; /* Espacement intérieur plus généreux */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius); /* Coins arrondis */
+    box-shadow: 0 2px 6px var(--shadow-light); /* Ombre légère */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transitions douces */
 }
 
 #pdf-list li:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 4px 12px var(--shadow-dark); /* Ombre plus foncée au survol */
 }
 
 #pdf-list li a {
     text-decoration: none;
-    color: #4CAF50;
-    font-size: 1.5em;
-    transition: color 0.3s;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s; /* Transition douce */
 }
 
 #pdf-list li a:hover {
-    color: #388E3C;
+    color: var(--primary-dark); /* Couleur des liens au survol */
 }
 
+/* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: var(--footer-bg);
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 1.5rem 0; /* Espacement plus généreux */
     position: relative;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -4px 8px var(--shadow-light); /* Ombre au-dessus du pied de page */
 }
 
 footer p {
     margin: 0;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 2rem;
     }
 
     nav ul li {
         display: block;
-        margin: 10px 0;
+        margin: 0.75rem 0; /* Espacement plus large entre les éléments */
     }
 
     nav ul li a {
-        font-size: 1em;
+        font-size: 1rem;
     }
 
     #search-bar {
-        font-size: 1em;
+        font-size: 1rem;
     }
 
     #pdf-list li a {
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
 }
