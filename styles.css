@@ -52,7 +52,6 @@ body {
     /* Ajoutez d'autres styles si nécessaire */
 }
 
-
 /* Styles pour l'en-tête */
 header {
     background-color: var(--header-bg);
@@ -60,7 +59,6 @@ header {
     padding: 1em 0; /* Réduit l'espace en haut et en bas */
     box-shadow: 0 4px 8px var(--shadow-light);
 }
-
 
 /* Contenu de l'en-tête avec titre et navigation */
 .header-content {
@@ -83,9 +81,6 @@ header {
     background-color: var(--primary-dark); /* Fond sombre pour contraste */
 }
 
-
-
-
 /* Styles pour la navigation */
 nav {
     display: flex;
@@ -103,8 +98,6 @@ nav ul {
 nav ul li {
     display: inline;
 }
-
-
 
 nav ul li a {
     color: white;
@@ -215,7 +208,7 @@ footer p {
 /* Styles pour les images de cours et de produits */
 .course-image,
 .product-image {
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
@@ -310,5 +303,9 @@ h2 {
 
     #pdf-list li a {
         font-size: 1.2rem;
+    }
+
+    .two-columns {
+        flex-direction: column;
     }
 }
