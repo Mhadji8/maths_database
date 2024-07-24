@@ -7,30 +7,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Maths Database</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="pdfs.html">PDFs</a></li>
-                <li><a href="socials.html">Me contacter</a></li>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="header-title">Maths Database</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="pdfs.html" class="active">PDFs</a></li>
+                        <li><a href="socials.html">Me contacter</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <h2 class="center-text">Liste des PDFs</h2>
+            <input type="text" id="search-bar" placeholder="Rechercher..." onkeyup="filterPDFs()">
+            <ul id="pdf-list">
+                <li><a href="assets/pdfs/convergence.pdf" target="_blank">Convergence de séries - fiche de révision - L2</a></li>
+                <li><a href="assets/pdfs/analyse3.pdf" target="_blank">Théorème des valeurs intermédiaires - démonstration - L2</a></li>
+                <!-- Ajoutez plus de liens vers vos PDFs ici -->
             </ul>
-        </nav>
-    </header>
+        </main>
 
-    <main>
-        <h2>Liste des PDFs</h2>
-        <input type="text" id="search-bar" placeholder="Rechercher..." onkeyup="filterPDFs()">
-        <ul id="pdf-list">
-            <li><a href="assets/pdfs/convergence.pdf" target="_blank">Convergence- de séries - fiche de révision - L2 </a></li>
-            <li><a href="assets/pdfs/analyse3.pdf" target="_blank">Théorème des valeures intermédiairaires - démonstration - L2</a></li>
-            <!-- Ajoutez plus de liens vers vos PDFs ici -->
-        </ul>
-    </main>
+        <footer>
+            <p>&copy; 2024 Maths Database. Tous droits réservés.</p>
+        </footer>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Maths Database. Tous droits réservés.</p>
-    </footer>
     <script>
         function filterPDFs() {
             const searchInput = document.getElementById('search-bar').value.toLowerCase();

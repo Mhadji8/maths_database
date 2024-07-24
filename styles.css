@@ -12,6 +12,13 @@
     --shadow-dark: rgba(0, 0, 0, 0.2); /* Ombre plus foncée */
     --font-base: 16px; /* Taille de police de base pour les calculs rem */
     --border-radius: 8px; /* Rayon des bordures */
+    --section-padding: 1.5rem; /* Espacement intérieur des sections */
+    --section-margin: 2rem auto; /* Espacement extérieur des sections */
+    --border-width: 4px; /* Largeur des bordures */
+    --side-border-width: 2px; /* Largeur des bordures latérales */
+    --border-margin: 2rem; /* Marge autour des éléments avec bordures */
+    --title-border-color: #000; /* Couleur du trait sous le titre */
+    --title-border-width: 2px;
 }
 
 /* Global Styles */
@@ -24,66 +31,85 @@ body {
     line-height: 1.6;
 }
 
-.center-text {
-    text-align: center;
+/* Container pour centrer le contenu et gérer les publicités latérales */
+.container {
+    width: 100%;
+    max-width: 1200px; /* Largeur maximale du conteneur principal */
+    margin: 0 auto;
+    padding: 0 2rem; /* Espacement horizontal pour les publicités latérales */
 }
 
-.course-image {
-    width: 300px;  /* Largeur fixe pour les images */
-    height: auto;  /* Maintient les proportions de l'image */
-    max-width: 100%; /* Réduit la taille de l'image si nécessaire */
-    border-radius: var(--border-radius); /* Coins arrondis */
-    box-shadow: 0 4px 8px var(--shadow-light); /* Ombre légère */
-    transition: box-shadow 0.3s, transform 0.3s; /* Transition douce */
-}
-
-.course-image:hover {
-    box-shadow: 0 6px 12px var(--shadow-dark); /* Ombre plus foncée au survol */
-    transform: scale(1.05); /* Agrandissement léger au survol */
-}
-
-.flex-container {
+/* Styles pour les deux colonnes */
+.two-columns {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px; /* Ajustez selon vos besoins */
+    justify-content: space-between;
+    gap: 2rem; /* Espacement entre les colonnes */
+    margin: 2rem 0; /* Espacement autour du conteneur */
 }
 
-.adsense {
-    text-align: center;
+.two-columns section {
+    flex: 1;
+    /* Ajoutez d'autres styles si nécessaire */
 }
 
-/* Header Styles */
+
+/* Styles pour l'en-tête */
 header {
     background-color: var(--header-bg);
     color: white;
-    padding: 1.5em 0; /* Espacement plus généreux */
-    text-align: center;
-    box-shadow: 0 4px 8px var(--shadow-light); /* Ombre sous l'en-tête */
+    padding: 1em 0; /* Réduit l'espace en haut et en bas */
+    box-shadow: 0 4px 8px var(--shadow-light);
 }
 
-header h1 {
-    font-size: 2.5rem; /* Taille de police plus grande */
-    margin: 0;
-    font-weight: bold; /* Police en gras pour plus d'impact */
+
+/* Contenu de l'en-tête avec titre et navigation */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Aligne les éléments sur les côtés */
+    max-width: 100%;
+    padding: 0 2rem; /* Espacement horizontal */
 }
 
-/* Navigation Styles */
+.header-title {
+    border: var(--title-border-width) solid #fff; /* Bordure blanche */
+    border-radius: var(--border-radius); /* Bordure arrondie */
+    padding: 1rem; /* Espacement intérieur */
+    margin-bottom: 1rem; /* Espacement sous la bordure */
+    font-size: 2rem; /* Taille du texte */
+    font-weight: bold; /* Poids de la police */
+    color: #fff; /* Couleur du texte en blanc */
+    display: inline-block; /* Ajuste la largeur à celle du contenu */
+    background-color: var(--primary-dark); /* Fond sombre pour contraste */
+}
+
+
+
+
+/* Styles pour la navigation */
+nav {
+    display: flex;
+    gap: 1rem; /* Espacement entre les éléments de navigation */
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: 1rem; /* Espacement entre les liens */
 }
 
 nav ul li {
-    display: inline-block;
-    margin: 0 1.5rem; /* Espacement plus large entre les éléments */
+    display: inline;
 }
+
+
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Réduit la taille de police pour un look plus minimaliste */
     padding: 0.5rem 1rem; /* Espacement intérieur des liens */
     border-radius: var(--border-radius); /* Coins arrondis pour les liens */
     transition: background-color 0.3s, color 0.3s; /* Transitions douces */
@@ -94,37 +120,49 @@ nav ul li a:hover {
     color: var(--text-color); /* Couleur du texte au survol */
 }
 
-/* Main Content Styles */
-main {
-    padding: 2rem; /* Espacement plus large autour du contenu principal */
+nav ul li a.active {
+    background-color: var(--primary-dark); /* Couleur de fond active pour les éléments sélectionnés */
+    color: white; /* Couleur du texte pour l'élément actif */
 }
 
-h2 {
-    font-size: 2rem;
-    margin-top: 0;
-    font-weight: bold; /* Police en gras pour les titres */
-    color: var(--primary-dark); /* Couleur des titres */
+/* Styles pour les sections avec bordures stylisées */
+section {
+    border-top: var(--border-width) solid var(--border-color); /* Bordure épaisse en haut */
+    border-bottom: var(--border-width) solid var(--border-color); /* Bordure épaisse en bas */
+    border-left: var(--side-border-width) solid var(--border-color); /* Bordure plus fine à gauche */
+    border-right: var(--side-border-width) solid var(--border-color); /* Bordure plus fine à droite */
+    border-radius: var(--border-radius); /* Coins arrondis */
+    box-shadow: 0 4px 8px var(--shadow-light); /* Ombre légère */
+    padding: var(--section-padding); /* Espacement intérieur */
+    margin: var(--section-margin); /* Espacement extérieur */
+    background-color: white; /* Couleur de fond blanche pour les sections */
 }
 
-/* Form Styles */
+/* Bordure stylisée avec un effet d'ombre pour le survol */
+section:hover {
+    box-shadow: 0 6px 12px var(--shadow-dark); /* Ombre plus foncée au survol */
+    transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+/* Barre de recherche */
 #search-bar {
     width: 100%;
-    padding: 0.75rem; /* Espacement plus généreux */
-    margin: 1.5rem 0; /* Espacement autour du champ de recherche */
+    padding: 0.75rem;
+    margin: 1.5rem 0;
     font-size: 1.2rem;
     box-sizing: border-box;
     border: 2px solid var(--border-color);
-    border-radius: var(--border-radius); /* Coins arrondis */
-    box-shadow: 0 2px 4px var(--shadow-light); /* Ombre légère */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Transitions douces */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #search-bar:focus {
-    border-color: var(--primary-dark); /* Changement de couleur au focus */
-    box-shadow: 0 2px 6px var(--shadow-dark); /* Ombre plus foncée au focus */
+    border-color: var(--primary-dark);
+    box-shadow: 0 2px 6px var(--shadow-dark);
 }
 
-/* PDF List Styles */
+/* Liste des PDFs */
 #pdf-list {
     list-style-type: none;
     padding: 0;
@@ -133,40 +171,40 @@ h2 {
 
 #pdf-list li {
     background-color: white;
-    margin: 0.75rem 0; /* Espacement plus large */
-    padding: 1rem; /* Espacement intérieur plus généreux */
+    margin: 0.75rem 0;
+    padding: 1rem;
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius); /* Coins arrondis */
-    box-shadow: 0 2px 6px var(--shadow-light); /* Ombre légère */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transitions douces */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #pdf-list li:hover {
-    transform: translateY(-5px); /* Légère élévation au survol */
-    box-shadow: 0 4px 12px var(--shadow-dark); /* Ombre plus foncée au survol */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px var(--shadow-dark);
 }
 
 #pdf-list li a {
     text-decoration: none;
     color: var(--primary-color);
     font-size: 1.5rem;
-    transition: color 0.3s; /* Transition douce */
+    transition: color 0.3s;
 }
 
 #pdf-list li a:hover {
-    color: var(--primary-dark); /* Couleur des liens au survol */
+    color: var(--primary-dark);
 }
 
-/* Footer Styles */
+/* Styles du pied de page */
 footer {
     background-color: var(--footer-bg);
     color: white;
     text-align: center;
-    padding: 1.5rem 0; /* Espacement plus généreux */
+    padding: 1.5rem 0;
     position: relative;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -4px 8px var(--shadow-light); /* Ombre au-dessus du pied de page */
+    box-shadow: 0 -4px 8px var(--shadow-light);
 }
 
 footer p {
@@ -174,15 +212,92 @@ footer p {
     font-size: 1rem;
 }
 
-/* Responsive Design */
+/* Styles pour les images de cours et de produits */
+.course-image,
+.product-image {
+    max-width: 200px;
+    height: auto;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.course-image:hover,
+.product-image:hover {
+    box-shadow: 0 6px 12px var(--shadow-dark);
+    transform: scale(1.05);
+}
+
+/* Container flexible pour centrer les éléments */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Styles pour les liens d'affiliation */
+.affiliate-link {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff9900;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.affiliate-link:hover {
+    background-color: #e68a00;
+}
+
+/* Code AdSense */
+.adsense {
+    text-align: center;
+}
+
+/* Styles pour les éléments centraux avec bordures */
+.center-text {
+    text-align: center;
+}
+
+.center-text-bordered {
+    border: 2px solid var(--border-color); /* Bordure épaisse */
+    padding: 0.75rem; /* Espacement intérieur */
+    border-radius: var(--border-radius); /* Coins arrondis */
+    display: inline-block; /* Pour que la bordure s'ajuste au texte */
+    margin: var(--border-margin) auto; /* Marge plus grande autour des éléments avec bordures */
+}
+
+/* Bordure sous le titre h2 */
+h2 {
+    border-bottom: var(--title-border-width) solid var(--title-border-color); /* Trait noir en dessous */
+    padding-bottom: 1rem; /* Espacement entre le texte et le trait */
+    margin-bottom: 1rem; /* Espacement entre le trait et le texte en dessous */
+    font-size: 2rem; /* Taille du titre */
+    font-weight: bold; /* Poids de la police */
+    color: var(--primary-dark); /* Couleur du texte du titre */
+}
+
+/* Design Réactif */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
+    header {
+        padding: 1em; /* Réduit l'espace pour les petits écrans */
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        display: block;
-        margin: 0.75rem 0; /* Espacement plus large entre les éléments */
+        margin: 0.75rem 0;
     }
 
     nav ul li a {
